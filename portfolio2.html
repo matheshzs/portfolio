@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mathesh S — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#2A0710;--bg2:#3A0B17;--text:#F7E9EA;--muted:#C9A3A8;--red:#FF3B4E;--red2:#C8102E;--line:#5A1A27;--glow:rgba(255,59,78,.28);color-scheme:dark;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#FBF3F3;--bg2:#F5E3E5;--text:#3A0B17;--muted:#7A4A52;--red:#C8102E;--red2:#8E0B20;--line:#E8C5CA;--glow:rgba(200,16,46,.16);color-scheme:light}}
+:root[data-theme="light"]{--bg:#FBF3F3;--bg2:#F5E3E5;--text:#3A0B17;--muted:#7A4A52;--red:#C8102E;--red2:#8E0B20;--line:#E8C5CA;--glow:rgba(200,16,46,.16);color-scheme:light}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.7 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:20}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:500;margin:0;letter-spacing:-.02em;line-height:1.02}
+a{color:inherit}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--red);outline-offset:4px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:21;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar{max-width:1180px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.logo{font:700 24px Fraunces,serif;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo i{width:12px;height:12px;border-radius:50%;background:var(--red);box-shadow:0 0 18px var(--red)}
+nav{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--muted);font-weight:500;font-size:15px;padding:4px 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+nav a:hover,nav a.on{color:var(--text);border-color:var(--red)}
+#theme{background:none;border:1px solid var(--line);color:var(--text);border-radius:999px;padding:5px 13px;font:500 13px Manrope,sans-serif;cursor:pointer}
+main{max-width:1180px;margin:0 auto;padding:0 28px 96px}
+.page{display:none}.page.show{display:block;animation:in .45s ease-out}
+@keyframes in{from{opacity:0;transform:translateY(10px)}}
+.hero{position:relative;min-height:calc(100vh - 140px);display:flex;flex-direction:column;justify-content:center;margin:0 -28px;padding:80px 28px;overflow:hidden;
+background:radial-gradient(520px circle at var(--mx,70%) var(--my,30%),var(--glow),transparent 70%)}
+.hero h1{font-size:clamp(64px,15vw,200px);font-weight:300;letter-spacing:-.045em;line-height:.9}
+.hero h1 b{font-weight:700;color:var(--red)}
+.hero p{max-width:30em;font-size:clamp(18px,2.2vw,23px);color:var(--muted);margin:36px 0 40px}
+.btn{display:inline-block;padding:15px 30px;border-radius:999px;font-weight:600;text-decoration:none;margin:0 12px 12px 0;transition:transform .2s,background .2s}
+.btn.fill{background:var(--red);color:#fff}.btn.fill:hover{background:var(--red2);transform:translateY(-2px)}
+.btn.ghost{border:1px solid var(--line)}.btn.ghost:hover{border-color:var(--red)}
+.sec{padding:80px 0 0}
+h2{font-size:clamp(38px,6.5vw,76px);font-weight:300;margin-bottom:36px}
+.lede{font-family:Fraunces,serif;font-size:clamp(24px,3.4vw,38px);font-weight:300;line-height:1.3;max-width:26em;letter-spacing:-.01em}
+.cols{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.cols>div{background:var(--bg);padding:34px 28px}
+.cols h3{font-size:28px;margin-bottom:12px}
+.cols p{margin:0;color:var(--muted)}
+.cols ul{margin:0;padding:0;list-style:none;color:var(--muted)}
+.cols li{padding:5px 0}
+.cols .k{color:var(--red);font:600 13px Manrope,sans-serif;display:block;margin-bottom:14px}
+details{border-top:1px solid var(--line)}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:34px 0}
+summary::-webkit-details-marker{display:none}
+summary h3{font-size:clamp(30px,5.5vw,64px);font-weight:300;transition:color .25s,transform .25s}
+summary:hover h3,details[open] summary h3{color:var(--red)}
+summary:hover h3{transform:translateX(8px)}
+summary .pl{flex:none;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;position:relative;transition:transform .3s,background .3s}
+summary .pl::before,summary .pl::after{content:"";position:absolute;left:50%;top:50%;width:16px;height:2px;background:var(--text);transform:translate(-50%,-50%)}
+summary .pl::after{transform:translate(-50%,-50%) rotate(90deg)}
+details[open] .pl{transform:rotate(45deg);background:var(--red);border-color:var(--red)}
+details[open] .pl::before,details[open] .pl::after{background:#fff}
+.det{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));padding:0 0 44px;max-width:900px}
+.det .sub{font-family:Fraunces,serif;font-size:22px;font-style:italic;color:var(--muted);grid-column:1/-1;margin:0}
+.det ul{margin:0;padding-left:20px}.det li{margin-bottom:10px}
+.tags{display:flex;flex-wrap:wrap;gap:10px;align-content:flex-start}
+.tag{border:1px solid var(--red);color:var(--red);border-radius:999px;padding:4px 15px;font-size:14px;font-weight:600}
+.row{display:grid;grid-template-columns:minmax(150px,260px) 1fr;gap:28px;padding:36px 0;border-top:1px solid var(--line)}
+.row:last-child{border-bottom:1px solid var(--line)}
+.row .when{color:var(--red);font-weight:600}
+.row h3{font-size:34px;margin-bottom:6px}
+.row p{margin:8px 0 0;color:var(--muted);max-width:38em}
+@media(max-width:620px){.row{grid-template-columns:1fr;gap:8px}}
+.mail{display:block;font:300 clamp(30px,7.5vw,100px)/1.05 Fraunces,serif;letter-spacing:-.03em;text-decoration:none;word-break:break-word;margin:12px 0 56px;transition:color .25s}
+.mail:hover{color:var(--red)}
+.links{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.links a{background:var(--bg);padding:28px;text-decoration:none;transition:background .25s}
+.links a:hover{background:var(--bg2)}
+.links small{display:block;color:var(--red);font-weight:600;margin-bottom:6px}
+.links span{font-family:Fraunces,serif;font-size:22px;word-break:break-word}
+footer{border-top:1px solid var(--line);padding:28px;text-align:center;color:var(--muted);font-size:14px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="bar">
+<a class="logo" href="#/"><i></i>Mathesh S</a>
+<nav aria-label="Main"><a href="#/" data-p="home">Home</a><a href="#/about" data-p="about">About</a><a href="#/work" data-p="work">Work</a><a href="#/experience" data-p="experience">Experience</a><a href="#/contact" data-p="contact">Contact</a><button id="theme" type="button" aria-label="Switch colour theme">Theme</button></nav>
+</div></header>
+<main>
+
+<section class="page" id="home">
+<div class="hero" id="hero">
+<h1>Mathesh<br><b>S.</b></h1>
+<p>I design and build AI-powered products that solve real problems, from learning tools for students with dyslexia to intelligence platforms for first-time entrepreneurs.</p>
+<div><a class="btn fill" href="#/work">View my work</a><a class="btn ghost" href="#/contact">Start a conversation</a></div>
+</div>
+<div class="sec"><h2>Where I focus</h2>
+<div class="cols">
+<div><span class="k">Generative AI</span><h3>Applied intelligence</h3><p>Prompt engineering with the Gemini and OpenAI APIs, shaped into products people can actually use.</p></div>
+<div><span class="k">Full stack</span><h3>Considered interfaces</h3><p>React and Next.js front ends supported by Python services and SQL data.</p></div>
+<div><span class="k">Web3</span><h3>Built under pressure</h3><p>Team hackathons with Protocol Labs and Hedera, turning ideas into working prototypes in hours.</p></div>
+</div></div>
+</section>
+
+<section class="page" id="about">
+<div class="sec"><h2>About</h2>
+<p class="lede">A Computer Science and Engineering student at Loyola-ICAM College of Engineering and Technology in Chennai, drawn to practical technology that scales.</p></div>
+<div class="sec"><h2>Toolkit</h2>
+<div class="cols">
+<div><span class="k">Languages</span><ul><li>Python</li><li>Java</li><li>SQL</li></ul></div>
+<div><span class="k">Web</span><ul><li>React</li><li>Next.js</li></ul></div>
+<div><span class="k">AI</span><ul><li>Generative AI</li><li>Prompt Engineering</li><li>OCR (Tesseract)</li><li>Gemini API</li><li>OpenAI API</li></ul></div>
+<div><span class="k">Tools</span><ul><li>Git</li><li>GitHub</li><li>VS Code</li></ul></div>
+<div><span class="k">Strengths</span><ul><li>Problem-solving</li><li>Team collaboration</li><li>Clear communication</li><li>Rapid learning</li></ul></div>
+</div></div>
+<div class="sec"><h2>Education</h2>
+<div class="row"><div class="when">Current</div><div><h3>B.E. Computer Science and Engineering</h3><p>Loyola-ICAM College of Engineering and Technology (LICET), Chennai</p></div></div>
+<div class="row"><div class="when">Diploma</div><div><h3>Murugappa Polytechnic College</h3><p>Chennai · 87.3%</p></div></div>
+<div class="row"><div class="when">School</div><div><h3>Ebenezer Modern Matriculation School</h3><p>Chennai · 82.4%</p></div></div>
+</div></section>
+
+<section class="page" id="work">
+<div class="sec"><h2>Selected work</h2>
+<details open><summary><h3>Franzo AI</h3><span class="pl"></span></summary><div class="det">
+<p class="sub">AI-powered franchise intelligence platform</p>
+<ul><li>Recommendation engine matching entrepreneurs to franchises by budget, location and preference.</li><li>Market analysis with ROI and break-even prediction.</li><li>AI chatbot for guidance and automated agreement summaries.</li></ul>
+<div class="tags"><span class="tag">Generative AI</span><span class="tag">Recommendations</span><span class="tag">Prediction</span></div></div></details>
+<details><summary><h3>DyslexiaAI</h3><span class="pl"></span></summary><div class="det">
+<p class="sub">AI learning companion for students with dyslexia</p>
+<ul><li>Text simplification and dyslexia-friendly formatting.</li><li>Tesseract OCR to read books and handwritten notes.</li><li>Text-to-speech, speech-to-text and personalized learning recommendations.</li></ul>
+<div class="tags"><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Python</span><span class="tag">Gemini / OpenAI</span><span class="tag">OCR</span></div></div></details>
+<details><summary><h3>AI Job Marketplace</h3><span class="pl"></span></summary><div class="det">
+<p class="sub">AI-driven job discovery platform</p>
+<ul><li>A marketplace connecting job seekers with opportunities.</li><li>Prompt engineering and Generative AI APIs for personalized search and matching.</li></ul>
+<div class="tags"><span class="tag">Prompt engineering</span><span class="tag">Generative AI</span></div></div></details>
+</div></section>
+
+<section class="page" id="experience">
+<div class="sec"><h2>Experience</h2>
+<div class="row"><div class="when">Internship</div><div><h3>HR Intern</h3><p>PKR Equipments, Ambattur Industrial Estate, Chennai</p><p>Supported day-to-day HR operations and gained practical exposure to workplace processes and team coordination, strengthening communication, documentation and organisational skills.</p></div></div></div>
+<div class="sec"><h2>Hackathons</h2>
+<div class="row"><div class="when">Web3</div><div><h3>PL Genesis — Protocol Labs</h3><p>Collaborated with a team to build an innovative technology solution under time constraints.</p></div></div>
+<div class="row"><div class="when">Blockchain</div><div><h3>Hedera Hackathon</h3><p>Explored practical decentralized application development.</p></div></div>
+</div></section>
+
+<section class="page" id="contact">
+<div class="sec"><h2>Let’s build something</h2>
+<a class="mail" href="mailto:mathesh3206@gmail.com">mathesh3206@gmail.com</a>
+<div class="links">
+<a href="tel:+918072567066"><small>Phone</small><span>+91 80725 67066</span></a>
+<a href="https://linkedin.com/in/mathesh-s-9277052a5" target="_blank" rel="noopener"><small>LinkedIn</small><span>mathesh-s-9277052a5</span></a>
+<a href="https://github.com/matheshzs" target="_blank" rel="noopener"><small>GitHub</small><span>matheshzs</span></a>
+</div></div></section>
+</main>
+<footer>© Mathesh S · Chennai, Tamil Nadu</footer>
+<script>
+(function(){
+var pages=["home","about","work","experience","contact"];
+function route(){var h=location.hash.replace(/^#\/?/,"")||"home";if(pages.indexOf(h)<0)h="home";
+pages.forEach(function(p){document.getElementById(p).classList.toggle("show",p===h)});
+document.querySelectorAll("nav a").forEach(function(a){a.classList.toggle("on",a.dataset.p===h)});
+document.title=h==="home"?"Mathesh S — Portfolio":h.charAt(0).toUpperCase()+h.slice(1)+" — Mathesh S";window.scrollTo(0,0)}
+window.addEventListener("hashchange",route);route();
+var hero=document.getElementById("hero");
+hero.addEventListener("pointermove",function(e){var r=hero.getBoundingClientRect();hero.style.setProperty("--mx",(e.clientX-r.left)+"px");hero.style.setProperty("--my",(e.clientY-r.top)+"px")});
+document.getElementById("theme").addEventListener("click",function(){var r=document.documentElement,d=r.getAttribute("data-theme");
+var cur=d||(matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");r.setAttribute("data-theme",cur==="dark"?"light":"dark")});
+})();
+</script>
+</body>
+</html>
